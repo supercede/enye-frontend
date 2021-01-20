@@ -1,31 +1,29 @@
 import {
   Card,
   CardBody,
-  CardHeader,
   CardTitle,
-  CardImg,
   Row,
   Col,
   // Media,
 } from 'reactstrap';
-import Loader from '../Loader';
+import Loader from '../Loader/Loader';
 
 const Profile = ({ loading, data }) => {
   if (loading) {
     return (
-      <div className='row'>
+      <Row>
         <Loader />
-      </div>
+      </Row>
     );
   }
 
   const renderedProfiles = data.map((entry, index) => {
     return (
-      <Col key={index} className='my-3'>
-        <Card>
+      <Col key={index} className='my-3 card-deck'>
+        <Card className='shadow'>
           <CardBody>
             <CardTitle>
-              <h3>
+              <h3 className='text-center'>
                 {entry.FirstName} {entry.LastName}
               </h3>
             </CardTitle>
@@ -65,7 +63,7 @@ const Profile = ({ loading, data }) => {
                 <strong>PaymentMethod</strong>: {entry.PaymentMethod}
               </li>
               <li>
-                <strong>URL</strong>: {entry.URL}
+                <strong>URL</strong>: <a href={`${entry.URL}`}>{entry.URL}</a>
               </li>
               <li>
                 <strong>PhoneNumber</strong>: {entry.PhoneNumber}

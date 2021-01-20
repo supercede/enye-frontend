@@ -1,0 +1,9 @@
+.wrapper {
+  min-height: 100vh;
+  padding: 20% 0;
+  text-align: center;
+}
+
+.loader {
+  font-size: 30px;
+}
